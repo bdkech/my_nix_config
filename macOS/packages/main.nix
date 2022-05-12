@@ -49,9 +49,7 @@ in {
     brave
 
     # DEFAULT
-    discord
     vlc
-    spotify
   ];
 
 }

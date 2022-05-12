@@ -20,7 +20,6 @@ in {
     # MISC
     appimage-run
     appimagekit
-    arp
     nmap
 
     # TERMINAL

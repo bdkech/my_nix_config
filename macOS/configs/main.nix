@@ -56,6 +56,4 @@
     };
   };
 
-  xsession.enable = true;
-
 }

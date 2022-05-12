@@ -51,7 +51,7 @@
             # `home-manager` config
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.bdkech = import ./home.nix;            
+            home-manager.users.bdkech = import ./macOS/home.nix;            
           }
         ];
       };

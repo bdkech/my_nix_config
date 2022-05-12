@@ -2,8 +2,8 @@
 {
   # Nix configuration ------------------------------------------------------------------------------
 
-  allowUnfree = true;
-  permittedInsecurePackages = [ "electron-9.4.4" "electron-11.5.0" ];
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "electron-9.4.4" "electron-11.5.0" ];
 
   nix.binaryCaches = [
     "https://cache.nixos.org/"
@@ -54,9 +54,5 @@
 
   # Keyboard
   system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToEscape = true;
-
-  # Add ability to used TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
 
 }

@@ -8,7 +8,8 @@
 
     # Environment/system management
     darwin.url = "github:lnl7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
@@ -39,7 +40,7 @@
     # My `nix-darwin` configs
       
     darwinConfigurations = rec {
-      seriesoftubes = darwinSystem {
+      drywall = darwinSystem {
         system = "aarch64-darwin";
         modules = attrValues self.darwinModules ++ [ 
           # Main `nix-darwin` config

@@ -11,15 +11,12 @@ let
       streamlink
       wheel
       twine
-      flake8
       virtualenv
     ]);
 
 in {
   home.packages = with pkgs; [
     # MISC
-    appimage-run
-    appimagekit
     nmap
 
     # TERMINAL
@@ -37,19 +34,10 @@ in {
 
     # DEVELOPMENT
     nixfmt
-    default-python
-    gcc
     gnumake
     binutils
     gdb
     rustup
-
-    # OFFICE
-    texlive.combined.scheme-medium
-    brave
-
-    # DEFAULT
-    vlc
   ];
 
 }

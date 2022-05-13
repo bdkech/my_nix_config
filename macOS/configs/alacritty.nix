@@ -17,10 +17,11 @@
 
       font = {
         normal.family = "Hack Nerd Font Mono";
-        size = 6;
+        size = 12;
       };
 
-      background_opacity = 0.3;
+      window.opacity = 0.70;
+      window.decorations = "Transparent";
 
       shell = { program = "${pkgs.zsh}/bin/zsh"; };
 

@@ -23,6 +23,10 @@
     inherit (darwin.lib) darwinSystem;
     inherit (inputs.nixpkgs-unstable.lib) attrValues makeOverridable optionalAttrs singleton;
 
+    homeManagerConfFor = config: { ... }: {
+      imports = [ config ];
+    };
+
     # Configuration for `nixpkgs`
     nixpkgsConfig = {
       config = { allowUnfree = true; };
@@ -33,28 +37,16 @@
             nix-index;
         })
       );
-    }; 
+    };
+
+    linuxSystem = home-manager.lib.homeManagerConfiguration {
+      configuration = homeManagerConfFor ./linux/home.nix;
+      homeDirectory = "/home/bdkech";
+      username = "bdkech";
+      system = "x86_64-linux";
+    };  
   in
-  {
-#    # My linux configs
-#    linuxGUIConfigurations = rec {
-#      drywall = home-manager.lib.homeManagerConfiguration {
-#        system = "x86_64-linux";
-#        modules = attrValues self.linuxModules ++ [ 
-#          # Main `nix-darwin` config
-#          ./config.nix
-#          # `home-manager` module
-#          home-manager
-#          {
-#            nixpkgs = nixpkgsConfig;
-#            # `home-manager` config
-#            home-manager.useGlobalPkgs = true;
-#            home-manager.useUserPackages = true;
-#            home-manager.users.bdkech = import ./linux/home.nix;            
-#          }
-#        ];
-#      };
-#    };
+  { 
     darwinConfigurations = rec {
       drywall = darwinSystem {
         system = "aarch64-darwin";
@@ -73,7 +65,8 @@
         ];
       };
     };
-
+    
+    defaultPackage.x86_64-linux = linuxSystem.activationPackage;
     # Overlays --------------------------------------------------------------- {{{
 
     overlays = {

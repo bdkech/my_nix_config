@@ -36,25 +36,25 @@
     }; 
   in
   {
-    # My linux configs
-    linuxGUIConfigurations = rec {
-      drywall = home-manager.lib.homeManagerConfiguration {
-        system = "x86_64-linux";
-        modules = attrValues self.linuxModules ++ [ 
-          # Main `nix-darwin` config
-          ./config.nix
-          # `home-manager` module
-          home-manager
-          {
-            nixpkgs = nixpkgsConfig;
-            # `home-manager` config
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.bdkech = import ./linux/home.nix;            
-          }
-        ];
-      };
-    };
+#    # My linux configs
+#    linuxGUIConfigurations = rec {
+#      drywall = home-manager.lib.homeManagerConfiguration {
+#        system = "x86_64-linux";
+#        modules = attrValues self.linuxModules ++ [ 
+#          # Main `nix-darwin` config
+#          ./config.nix
+#          # `home-manager` module
+#          home-manager
+#          {
+#            nixpkgs = nixpkgsConfig;
+#            # `home-manager` config
+#            home-manager.useGlobalPkgs = true;
+#            home-manager.useUserPackages = true;
+#            home-manager.users.bdkech = import ./linux/home.nix;            
+#          }
+#        ];
+#      };
+#    };
     darwinConfigurations = rec {
       drywall = darwinSystem {
         system = "aarch64-darwin";

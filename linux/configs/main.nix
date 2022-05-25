@@ -3,7 +3,6 @@
 {
   imports = [
     ./alacritty.nix
-    ./compton.nix
     ./i3.nix
     ./polybar.nix
     ./redshift.nix

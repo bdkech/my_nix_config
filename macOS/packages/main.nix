@@ -9,6 +9,7 @@ let
       flake8
       setuptools
       streamlink
+      remarkable-fs
       wheel
       twine
       virtualenv

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./alacritty.nix
     ./neovim.nix
   ];
 
@@ -21,6 +20,7 @@
         [ ! -d "$HOME/.zsh/fsh/" ] && mkdir $HOME/.zsh/fsh/
         export FAST_WORK_DIR=$HOME/.zsh/fsh/;
         export PATH=$PATH:~/tools
+        export PATH=/Users/bdkech/Library/Python/3.8/bin:$PATH
       '';
       plugins = [
         {
